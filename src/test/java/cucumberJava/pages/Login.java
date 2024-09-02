@@ -11,9 +11,10 @@ import java.time.Duration;
 
 import static cucumberJava.utils.Base.prop;
 
-public class Login{
+public class Login {
 
     WebDriver driver;
+
     public Login(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -22,57 +23,54 @@ public class Login{
     @FindBy(id = "ap_email1")
     WebElement emailAddress;
 
-    @FindBy(id="ap_password")
+    @FindBy(id = "ap_password")
     WebElement password;
 
-    @FindBy(id ="signInSubmit")
+    @FindBy(id = "signInSubmit")
     WebElement signIbButton;
 
-    @FindBy(id ="continue")
+    @FindBy(id = "continue")
     WebElement continueButton;
 
     @FindBy(id = "nav-link-accountList-nav-line-1")
     WebElement navigateToLogin;
 
-    @FindBy(id= "sp-cc-accept")
+    @FindBy(id = "sp-cc-accept")
     WebElement acceptCookies;
 
-    @FindBy(id="nav-link-accountList-nav-line-1")
+    @FindBy(id = "nav-link-accountList-nav-line-1")
     WebElement successLogin;
 
-
-    public void enterEmail(String username){
+    public void enterEmail(String username) {
         emailAddress.sendKeys(username);
     }
 
-    public void enterPassword(String pwd){
+    public void enterPassword(String pwd) {
         password.sendKeys(pwd);
     }
 
-    public void goToLogin(){
+    public void goToLogin() {
         navigateToLogin.click();
     }
 
     public void navigateUrl() throws InterruptedException {
         driver.navigate().to(prop.getProperty("url"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        Thread.sleep(8000);
+        Thread.sleep(1000);
         acceptCookies.click();
     }
 
-    public void clickOnContinue(){
+    public void clickOnContinue() {
         continueButton.click();
     }
 
-    public void clickSignIn(){
+    public void clickSignIn() {
         signIbButton.click();
     }
 
-    public void verifySuccessLogin(){
+    public void verifySuccessLogin() {
         String actual = successLogin.getText();
         Assert.assertTrue("Login Success with Username is not found", actual.contains("Shijith"));
     }
 
 }
-
-

@@ -1,0 +1,32 @@
+name: Cucumber UI Test
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "45 8 * * 1-5"
+  repository_dispatch:  
+    types: [trigger-workflow]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: [self-hosted, linux, x64] # the runner name which has built in java and maven capabilities
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          ref: ${{ github.event.client_payload.sha }}
+      - name: Install dependencies
+        run: mvn clean install
+      - name: Run Cucumber Tests
+        run: mvn -Dtest=Runner test 
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cucumber-report
+          path: ./target/
+          retention-days: 30
+
+      
