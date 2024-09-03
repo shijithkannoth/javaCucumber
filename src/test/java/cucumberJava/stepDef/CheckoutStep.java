@@ -94,7 +94,7 @@ public class CheckoutStep {
     public void validateSubTotal(){
         int subTotal = checkout.subTotal();
         int totalList = checkout.totalFromList();
-        Assert.assertEquals("Total Does not match", subTotal == totalList );
+        Assert.assertTrue("Total Does not match", subTotal == totalList );
     }
 
     @When("I go to Basket and verify the product added")
