@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Dashboard {
+    /*This Class Used the Page Factory Pattern to initialise the page objects */
+    /* This Class is used for creating the Webelements of Dashboard Page and associated methods to handle the page actions*/
     WebDriver driver;
     public Dashboard(WebDriver driver) {
         this.driver = driver;

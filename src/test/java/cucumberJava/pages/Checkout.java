@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Random;
 
 public class Checkout {
+    /*This Class Used the Page Factory Pattern to initialise the page objects */
+    /* This Class is used for creating the Webelements of Checkout Page and associated methods to handle the page actions*/
 
     WebDriver driver;
     public Checkout(WebDriver driver) {

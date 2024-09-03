@@ -13,6 +13,9 @@ import static cucumberJava.utils.Base.prop;
 
 public class Login {
 
+    /*This Class Used the Page Factory Pattern to initialise the page objects */
+    /* This Class is used for creating the Webelements of Login Page and associated methods to handle the page actions*/
+
     WebDriver driver;
 
     public Login(WebDriver driver) {

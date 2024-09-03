@@ -78,18 +78,8 @@ public class CheckoutStep {
         }
     }
 
-//    @Then("I check if basket is empty")
-//    public void i_check_if_basket_is_empty() {
-//        if(checkout.basketItem()>=1){
-//            checkout.basket().click();
-//            int subTotal = checkout.subTotal();
-//            int totalList = checkout.totalFromList();
-//            Assert.assertTrue("Total Does not match", subTotal == totalList );
-//        }
-//    }
-
     @Then("I check if basket is empty")
-    public void i_check_if_basket_is_empty() throws InterruptedException {
+    public void i_check_if_basket_is_empty(){
         if(checkout.basketItem()>=1){
             checkout.basket().click();
         } else {
@@ -99,15 +89,16 @@ public class CheckoutStep {
         }
     }
 
+    /* This method is to validate the Number of Items added in the Basket and
+    verify the same with Count of Number of Items in the List*/
     public void validateSubTotal(){
-
         int subTotal = checkout.subTotal();
         int totalList = checkout.totalFromList();
-        Assert.assertTrue("Total Does not match", subTotal == totalList );
+        Assert.assertEquals("Total Does not match", subTotal == totalList );
     }
 
     @When("I go to Basket and verify the product added")
-    public void i_go_to_basket_and_verify_the_product_added() throws InterruptedException {
+    public void i_go_to_basket_and_verify_the_product_added() {
         dashboard.goToBasket();
         validateSubTotal();
 
