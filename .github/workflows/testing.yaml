@@ -11,7 +11,7 @@ on:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: [self-hosted, linux, x64] # the runner name which has built in java and maven capabilities
+    runs-on: [self-hosted] # the runner name which has built in java and maven capabilities
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
