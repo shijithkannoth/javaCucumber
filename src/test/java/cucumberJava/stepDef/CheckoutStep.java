@@ -93,7 +93,7 @@ public class CheckoutStep {
         if(checkout.basketItem()>=1){
             checkout.basket().click();
         } else {
-            dashboard.enterSearchBar("Cricket Bat");
+            dashboard.enterSearchBar("Badmition");
             dashboard.addToBasket();
             checkout.basket().click();
         }

@@ -27,7 +27,7 @@ public class LoginStep extends Base {
         Thread.sleep(3000);
         login.enterEmail(prop.getProperty("email"));
         login.clickOnContinue();
-        login.enterPassword("Todayis@44");
+        login.enterPassword(prop.getProperty("password"));
     }
 
     @When("I click on login button")
